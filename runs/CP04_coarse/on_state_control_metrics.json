@@ -1,0 +1,16 @@
+{
+  "gate_v": 0.0,
+  "drain_v": 1.0,
+  "unknowns": 709,
+  "iterations": 617,
+  "converged": true,
+  "integrated_poisson_residual_V": 1.8309876544088798e-06,
+  "undamped_correction_inf_V": 6.378748775885168e-07,
+  "source_A_per_um": 7.485727689731981e-06,
+  "drain_A_per_um": -7.4857276897319755e-06,
+  "current_balance_relative": 6.78918322195576e-16,
+  "current_resolved": true,
+  "max_cell_E_MV_cm": 0.07376556585019872,
+  "max_gate_face_E_MV_cm": 0.08483040072772853,
+  "center_barrier_relative_bulk_eV": 1.0
+}

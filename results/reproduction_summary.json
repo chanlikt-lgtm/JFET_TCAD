@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETED",
+  "vth_extraction": {
+    "2.2": -4.0,
+    "2.3": -4.0,
+    "2.4": -5.0
+  },
+  "breakdown_voltage_curve": {
+    "-20.0": 200.0,
+    "-30.0": 463.9015821545788,
+    "-40.0": 849.8019170849884,
+    "-50.0": 1300.777705570882,
+    "-60.0": 1800.0
+  },
+  "figures_directory": "E:\\MATERIAL\\SOLI STATE\\JFET\\TCAD\\results\\figures"
+}

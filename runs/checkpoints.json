@@ -1,0 +1,147 @@
+{
+  "root": "E:\\MATERIAL\\SOLI STATE\\JFET\\TCAD",
+  "checkpoints": [
+    {
+      "checkpoint": "CP00 - package",
+      "status": "PASS",
+      "detail": "E:\\MATERIAL\\SOLI STATE\\JFET\\TCAD\\simulate_kem948_fig5.py"
+    },
+    {
+      "checkpoint": "CP00a - manifest",
+      "status": "NOT RUN",
+      "detail": "Use --verify-manifest on an untouched extraction"
+    },
+    {
+      "checkpoint": "CP01 - environment",
+      "status": "PASS",
+      "detail": "Python 3.13.15; numpy=2.5.1, scipy=1.18.0, matplotlib=3.11.1, reportlab=5.0.0, markdown-it-py=4.2.0"
+    },
+    {
+      "checkpoint": "CP02 - self-test",
+      "status": "PASS",
+      "detail": "returncode=0; relative balance=6.78918322195576e-16"
+    },
+    {
+      "checkpoint": "CP03/04 - coarse - paper_bias_approximation",
+      "status": "PASS",
+      "detail": "iterations=169; |r|=1.27e-07 V; current_resolved=False"
+    },
+    {
+      "checkpoint": "CP03/04 - coarse - on_state_control",
+      "status": "PASS",
+      "detail": "iterations=617; |r|=1.83e-06 V; current_resolved=True"
+    },
+    {
+      "checkpoint": "CP03/04 - fine - paper_bias_approximation",
+      "status": "PASS",
+      "detail": "iterations=212; |r|=1.6e-10 V; current_resolved=False"
+    },
+    {
+      "checkpoint": "CP03/04 - fine - on_state_control",
+      "status": "PASS",
+      "detail": "iterations=547; |r|=1.36e-06 V; current_resolved=True"
+    },
+    {
+      "checkpoint": "CP05 - geometry and mesh",
+      "status": "PASS",
+      "detail": "coarse/fine implant depth=0.600/0.600 um; mismatched mirror cells=0/0. This is NOT a 3-grid convergence certification."
+    },
+    {
+      "checkpoint": "CP06 - paper DIBL comparison",
+      "status": "NOT VALIDATED",
+      "detail": "Fine-grid nominal current is unresolved; paper Fig 5.1 conduction NOT reproduced"
+    },
+    {
+      "checkpoint": "CP07 - avalanche",
+      "status": "NOT AVAILABLE",
+      "detail": "The supplied electron-only code does not implement impact-ionization or hole transport"
+    }
+  ],
+  "cases": {
+    "coarse": {
+      "paper_bias_approximation": {
+        "label": "paper_bias_approximation",
+        "mesh_dx_um": 0.2,
+        "mesh_dy_um": 0.2,
+        "iterations": 169,
+        "residual_V": 1.2701543404641313e-07,
+        "correction_V": 2.3216929090486268e-07,
+        "current_resolved": false,
+        "source_A_per_um": -0.0,
+        "drain_A_per_um": 4.14e-20,
+        "current_balance_relative": null,
+        "gate_depth_um": 0.6000000000000001,
+        "gate_gap_um": 1.8,
+        "contact_separation_um": 12.8,
+        "mirror_gate_mismatch_cells": 0,
+        "mirror_potential_max_difference_V": 3.552713678800501e-15,
+        "max_cell_E_MV_cm": 0.6627947581825203,
+        "max_gate_face_E_MV_cm": 0.7622139719098983,
+        "center_barrier_eV": 200.0
+      },
+      "on_state_control": {
+        "label": "on_state_control",
+        "mesh_dx_um": 0.2,
+        "mesh_dy_um": 0.2,
+        "iterations": 617,
+        "residual_V": 1.8309876544088798e-06,
+        "correction_V": 6.378748775885168e-07,
+        "current_resolved": true,
+        "source_A_per_um": 7.485727689731981e-06,
+        "drain_A_per_um": -7.4857276897319755e-06,
+        "current_balance_relative": 6.78918322195576e-16,
+        "gate_depth_um": 0.6000000000000001,
+        "gate_gap_um": 1.8,
+        "contact_separation_um": 12.8,
+        "mirror_gate_mismatch_cells": 0,
+        "mirror_potential_max_difference_V": 1.1102230246251565e-16,
+        "max_cell_E_MV_cm": 0.07376556585019872,
+        "max_gate_face_E_MV_cm": 0.08483040072772853,
+        "center_barrier_eV": 1.0
+      }
+    },
+    "fine": {
+      "paper_bias_approximation": {
+        "label": "paper_bias_approximation",
+        "mesh_dx_um": 0.09999999999999998,
+        "mesh_dy_um": 0.10000000000000002,
+        "iterations": 212,
+        "residual_V": 1.6009805052115335e-10,
+        "correction_V": 4.859956232654258e-10,
+        "current_resolved": false,
+        "source_A_per_um": -0.0,
+        "drain_A_per_um": 4.14e-20,
+        "current_balance_relative": null,
+        "gate_depth_um": 0.6000000000000001,
+        "gate_gap_um": 1.7999999999999996,
+        "contact_separation_um": 12.9,
+        "mirror_gate_mismatch_cells": 0,
+        "mirror_potential_max_difference_V": 7.105427357601002e-15,
+        "max_cell_E_MV_cm": 0.7807418129642221,
+        "max_gate_face_E_MV_cm": 0.8978530849088553,
+        "center_barrier_eV": 200.0
+      },
+      "on_state_control": {
+        "label": "on_state_control",
+        "mesh_dx_um": 0.09999999999999998,
+        "mesh_dy_um": 0.10000000000000002,
+        "iterations": 547,
+        "residual_V": 1.3603359675543029e-06,
+        "correction_V": 1.8856392422433037e-06,
+        "current_resolved": true,
+        "source_A_per_um": 6.832076936378357e-06,
+        "drain_A_per_um": -6.832076936378208e-06,
+        "current_balance_relative": 2.1820275167419603e-14,
+        "gate_depth_um": 0.6000000000000001,
+        "gate_gap_um": 1.7999999999999996,
+        "contact_separation_um": 12.9,
+        "mirror_gate_mismatch_cells": 0,
+        "mirror_potential_max_difference_V": 2.220446049250313e-16,
+        "max_cell_E_MV_cm": 0.0958726801452447,
+        "max_gate_face_E_MV_cm": 0.11025358216703139,
+        "center_barrier_eV": 1.0
+      }
+    }
+  },
+  "scope": "Reduced-model numerical/integrity checks only; not a Sentaurus reproduction"
+}

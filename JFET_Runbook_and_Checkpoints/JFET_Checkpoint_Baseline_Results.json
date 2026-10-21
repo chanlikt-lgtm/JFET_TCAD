@@ -1,0 +1,147 @@
+{
+  "root": "/mnt/data/jfet_runbook_verify",
+  "checkpoints": [
+    {
+      "checkpoint": "CP00 - package",
+      "status": "PASS",
+      "detail": "/mnt/data/jfet_runbook_verify/simulate_kem948_fig5.py"
+    },
+    {
+      "checkpoint": "CP00a - manifest",
+      "status": "PASS",
+      "detail": "94/94 hashes verified"
+    },
+    {
+      "checkpoint": "CP01 - environment",
+      "status": "PASS",
+      "detail": "Python 3.13.5; numpy=2.3.5, scipy=1.17.0, matplotlib=3.10.8, reportlab=4.4.9, markdown-it-py=4.2.0"
+    },
+    {
+      "checkpoint": "CP02 - self-test",
+      "status": "PASS",
+      "detail": "returncode=0; relative balance=4.942697948785271e-15"
+    },
+    {
+      "checkpoint": "CP03/04 - coarse - paper_bias_approximation",
+      "status": "PASS",
+      "detail": "iterations=608; |r|=7.77e-11 V; current_resolved=False"
+    },
+    {
+      "checkpoint": "CP03/04 - coarse - on_state_control",
+      "status": "PASS",
+      "detail": "iterations=265; |r|=1.87e-06 V; current_resolved=True"
+    },
+    {
+      "checkpoint": "CP03/04 - fine - paper_bias_approximation",
+      "status": "PASS",
+      "detail": "iterations=604; |r|=1.2e-09 V; current_resolved=False"
+    },
+    {
+      "checkpoint": "CP03/04 - fine - on_state_control",
+      "status": "PASS",
+      "detail": "iterations=210; |r|=1.87e-06 V; current_resolved=True"
+    },
+    {
+      "checkpoint": "CP05 - geometry and mesh",
+      "status": "BLOCKED",
+      "detail": "coarse/fine implant depth=0.400/0.500 um; mismatched mirror cells=4/0. This is NOT a 3-grid convergence certification."
+    },
+    {
+      "checkpoint": "CP06 - paper DIBL comparison",
+      "status": "NOT VALIDATED",
+      "detail": "Fine-grid nominal current is unresolved; paper Fig 5.1 conduction NOT reproduced"
+    },
+    {
+      "checkpoint": "CP07 - avalanche",
+      "status": "NOT AVAILABLE",
+      "detail": "The supplied electron-only code does not implement impact-ionization or hole transport"
+    }
+  ],
+  "cases": {
+    "coarse": {
+      "paper_bias_approximation": {
+        "label": "paper_bias_approximation",
+        "mesh_dx_um": 0.2,
+        "mesh_dy_um": 0.2,
+        "iterations": 608,
+        "residual_V": 7.772826826624168e-11,
+        "correction_V": 6.578533495504363e-11,
+        "current_resolved": false,
+        "source_A_per_um": -0.0,
+        "drain_A_per_um": 4.143830486043498e-20,
+        "current_balance_relative": null,
+        "gate_depth_um": 0.4,
+        "gate_gap_um": 1.8,
+        "contact_separation_um": 12.8,
+        "mirror_gate_mismatch_cells": 4,
+        "mirror_potential_max_difference_V": 9.359174346614877,
+        "max_cell_E_MV_cm": 0.7334190937517281,
+        "max_gate_face_E_MV_cm": 0.9845357856907045,
+        "center_barrier_eV": 1.7486684668989376
+      },
+      "on_state_control": {
+        "label": "on_state_control",
+        "mesh_dx_um": 0.2,
+        "mesh_dy_um": 0.2,
+        "iterations": 265,
+        "residual_V": 1.8745961327046312e-06,
+        "correction_V": 1.7825762092586946e-07,
+        "current_resolved": true,
+        "source_A_per_um": -1.0282233986753708e-05,
+        "drain_A_per_um": 1.0282233986753763e-05,
+        "current_balance_relative": 5.272211145370956e-15,
+        "gate_depth_um": 0.4,
+        "gate_gap_um": 1.8,
+        "contact_separation_um": 12.8,
+        "mirror_gate_mismatch_cells": 4,
+        "mirror_potential_max_difference_V": 1.2197936793222641,
+        "max_cell_E_MV_cm": 0.06844596928419937,
+        "max_gate_face_E_MV_cm": 0.11702524406157236,
+        "center_barrier_eV": 0.0
+      }
+    },
+    "fine": {
+      "paper_bias_approximation": {
+        "label": "paper_bias_approximation",
+        "mesh_dx_um": 0.10000000000000002,
+        "mesh_dy_um": 0.10000000000000002,
+        "iterations": 604,
+        "residual_V": 1.2029645543587542e-09,
+        "correction_V": 1.3644774946830845e-09,
+        "current_resolved": false,
+        "source_A_per_um": 5.828684639709536e-19,
+        "drain_A_per_um": 8.014441379600612e-20,
+        "current_balance_relative": null,
+        "gate_depth_um": 0.5000000000000001,
+        "gate_gap_um": 1.8000000000000003,
+        "contact_separation_um": 12.9,
+        "mirror_gate_mismatch_cells": 0,
+        "mirror_potential_max_difference_V": 5.684341886080801e-13,
+        "max_cell_E_MV_cm": 0.8680114641864968,
+        "max_gate_face_E_MV_cm": 1.1663306533800015,
+        "center_barrier_eV": 3.8569900982680356
+      },
+      "on_state_control": {
+        "label": "on_state_control",
+        "mesh_dx_um": 0.10000000000000002,
+        "mesh_dy_um": 0.10000000000000002,
+        "iterations": 210,
+        "residual_V": 1.866115376104177e-06,
+        "correction_V": 7.051564492488756e-07,
+        "current_resolved": true,
+        "source_A_per_um": -8.833632605755907e-06,
+        "drain_A_per_um": 8.83363260575428e-06,
+        "current_balance_relative": 1.8429534001244044e-13,
+        "gate_depth_um": 0.5000000000000001,
+        "gate_gap_um": 1.8000000000000003,
+        "contact_separation_um": 12.9,
+        "mirror_gate_mismatch_cells": 0,
+        "mirror_potential_max_difference_V": 5.551115123125783e-16,
+        "max_cell_E_MV_cm": 0.09362429849312627,
+        "max_gate_face_E_MV_cm": 0.13707656669189783,
+        "center_barrier_eV": 0.0
+      }
+    }
+  },
+  "scope": "Reduced-model numerical/integrity checks only; not a Sentaurus reproduction"
+}
