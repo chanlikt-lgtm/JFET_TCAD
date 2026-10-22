@@ -5,6 +5,16 @@ All calculations support both SI units (m, s, kg, A, V) and standard TCAD units
 """
 from dataclasses import dataclass
 
+import numpy as np
+
+# Unit conversion constants
+V_UM_TO_MV_CM = 0.01   # 1 V/um = 0.01 MV/cm
+V_CM_TO_MV_CM = 1e-6   # 1 V/cm = 1e-6 MV/cm
+A_M2_TO_A_CM2 = 1e-4   # 1 A/m^2 = 1e-4 A/cm^2
+UM_TO_M = 1e-6         # 1 um = 1e-6 m
+CM_TO_M = 1e-2         # 1 cm = 1e-2 m
+CM3_TO_M3 = 1e6        # 1 cm^-3 = 1e6 m^-3
+
 # Fundamental constants (CODATA 2018)
 Q_E = 1.602176634e-19        # Elementary charge [C]
 EPS_0 = 8.8541878128e-12     # Vacuum permittivity [F/m]
@@ -61,5 +71,10 @@ H_DRIFT_UM = 11.0            # Drift layer thickness [um]
 H_TOTAL_UM = 13.0            # Total simulated vertical extent [um]
 TRENCH_BOTTOM_Y_UM = 2.0     # Trench recess top/bottom reference [um]
 
+def calc_built_in_potential(na_cm3: float, nd_cm3: float, ni_cm3: float = N_I_SIC_CM3, t_k: float = T_ROOM) -> float:
+    """Calculate thermal equilibrium built-in junction potential Vbi [V]."""
+    vt = K_B * t_k / Q_E
+    return float(vt * np.log((na_cm3 * nd_cm3) / (ni_cm3 ** 2)))
+
 # Built-in potentials
-PHI_BI_PN = V_T * 40.5       # ln(1e19 * 4e15 / ni^2) ~ 3.12 V
+PHI_BI_PN = calc_built_in_potential(NA_GATE_PEAK_CM3, ND_DRIFT_CM3)  # ~ 3.023 V at 300 K

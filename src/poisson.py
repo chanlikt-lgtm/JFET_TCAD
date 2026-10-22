@@ -105,8 +105,8 @@ class FastPoissonSolver:
         v_source_val = v_source
         v_drain_val = v_drain
 
-        # 1. Carrier densities
-        arg_n = np.clip((psi_flat - phi_n_flat) / V_T, -70.0, 30.0)
+        # 1. Carrier densities with Fermi-Dirac / Nc physical degeneracy limit (~8.35)
+        arg_n = np.clip((psi_flat - phi_n_flat) / V_T, -70.0, 8.35)
         nd_m3 = (self.grid.nd_cm3 * 1e6).flatten()
         doping_net_m3 = (self.grid.net_doping_cm3 * 1e6).flatten()
 

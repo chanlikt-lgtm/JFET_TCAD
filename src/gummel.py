@@ -120,7 +120,7 @@ def run_gummel_loop(
     e_mag_mv_cm = e_mag_v_cm / 1.0e6
     max_cell_e_mv_cm = float(np.max(e_mag_mv_cm[active]))
 
-    # Gate-face maximum field estimate
+    # Gate-face maximum field estimate (physical, without heuristic multiplier)
     gate_face_e = 0.0
     for j in range(ny):
         for i in range(nx):
@@ -133,12 +133,19 @@ def run_gummel_loop(
                 )
                 if is_near:
                     gate_face_e = max(gate_face_e, float(e_mag_mv_cm[j, i]))
-    max_gate_face_e_mv_cm = max(gate_face_e, max_cell_e_mv_cm * 1.15)
+    max_gate_face_e_mv_cm = float(gate_face_e if gate_face_e > 0.0 else max_cell_e_mv_cm)
 
-    # Centerline potential barrier relative to bulk
+    # Source-to-channel saddle potential barrier for electrons
     mid_col = nx // 2
-    center_potential = psi[:, mid_col]
-    barrier_ev = max(0.0, float(np.max(center_potential) - center_potential[0]))
+    gate_rows = np.flatnonzero(gate.any(axis=1))
+    if gate_rows.size > 0:
+        j_neck_start = max(0, gate_rows[0] - 2)
+        j_neck_end = min(ny, gate_rows[-1] + 3)
+        neck_potential = psi[j_neck_start:j_neck_end, mid_col]
+        saddle_psi = float(np.min(neck_potential))
+        barrier_ev = max(0.0, float(v_source - saddle_psi))
+    else:
+        barrier_ev = 0.0
 
     metrics = {
         "gate_v": float(v_gate),

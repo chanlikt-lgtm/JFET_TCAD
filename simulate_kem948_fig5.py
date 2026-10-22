@@ -25,6 +25,7 @@ if str(CURRENT_DIR) not in sys.path:
 from src.device import create_jfet_device, DeviceGrid
 from src.gummel import run_gummel_loop
 from src.poisson import FastPoissonSolver
+from src.transport import FastTransportSolver
 from src.postprocess import export_case_artifacts
 from src.constants import MU_N0_M2
 
@@ -32,7 +33,14 @@ def run_self_test() -> None:
     """Execute quick numerical self-test for JFET_Checkpoint_Validator.py."""
     grid = create_jfet_device(mesh_spacing_um=0.2, pillar_width_um=2.2, gate_gap_um=1.8, gate_depth_um=0.6)
     
-    # Run low-bias control case (Vgs=0 V, Vds=1 V)
+    # 1. Computed equilibrium flux identity test (zero bias, J_eq -> 0)
+    t_solver = FastTransportSolver(grid)
+    psi_eq = np.zeros((grid.ny, grid.nx), dtype=np.float64)
+    n_eq, phi_n_eq, jx_eq, jy_eq, eq_metrics = t_solver.solve_step(psi_eq, v_gate=0.0, v_drain=0.0, v_source=0.0)
+    max_eq_flux = float(np.max(np.hypot(jx_eq, jy_eq))) * 1e-4  # A/cm^2
+    eq_pass = bool(max_eq_flux < 1.0e-6)
+
+    # 2. Run low-bias control case (Vgs=0 V, Vds=1 V)
     psi, field_data, metrics, history = run_gummel_loop(
         grid=grid,
         v_gate=0.0,
@@ -48,12 +56,13 @@ def run_self_test() -> None:
     resolved = float(abs(metrics["drain_A_per_um"]))
 
     res = {
-        "equilibrium_flux_identity": "PASS",
+        "equilibrium_flux_max_A_cm2": max_eq_flux,
+        "equilibrium_flux_identity": "PASS" if eq_pass else "FAIL",
         "terminal_imbalance": imbalance,
         "iterations": metrics["iterations"],
         "poisson_residual": metrics["integrated_poisson_residual_V"],
         "resolved_current": resolved,
-        "status": "PASS" if metrics["converged"] and imbalance < 1e-5 else "FAIL"
+        "status": "PASS" if (metrics["converged"] and imbalance < 1e-5 and eq_pass) else "FAIL"
     }
     print(json.dumps(res, indent=2))
     sys.exit(0 if res["status"] == "PASS" else 1)
@@ -108,7 +117,7 @@ def simulate_nominal_paper_bias(grid: DeviceGrid, mesh_um: float, output_dir: Pa
     e_mag_mv_cm = e_mag_v_cm / 1.0e6
     max_cell_e_mv_cm = float(np.max(e_mag_mv_cm[active]))
 
-    # Gate-face maximum field estimate
+    # Gate-face maximum field estimate (physical, without heuristic multiplier)
     gate_face_e = 0.0
     for j in range(ny):
         for i in range(nx):
@@ -121,11 +130,19 @@ def simulate_nominal_paper_bias(grid: DeviceGrid, mesh_um: float, output_dir: Pa
                 )
                 if is_near:
                     gate_face_e = max(gate_face_e, float(e_mag_mv_cm[j, i]))
-    max_gate_face_e_mv_cm = max(gate_face_e, max_cell_e_mv_cm * 1.15)
+    max_gate_face_e_mv_cm = float(gate_face_e if gate_face_e > 0.0 else max_cell_e_mv_cm)
 
+    # Source-to-channel saddle potential barrier for electrons
     mid_col = nx // 2
-    center_potential = psi[:, mid_col]
-    barrier_ev = max(0.0, float(np.max(center_potential) - center_potential[0]))
+    gate_rows = np.flatnonzero(gate.any(axis=1))
+    if gate_rows.size > 0:
+        j_neck_start = max(0, gate_rows[0] - 2)
+        j_neck_end = min(ny, gate_rows[-1] + 3)
+        neck_potential = psi[j_neck_start:j_neck_end, mid_col]
+        saddle_psi = float(np.min(neck_potential))
+        barrier_ev = max(0.0, float(0.0 - saddle_psi))  # source is at 0.0 V
+    else:
+        barrier_ev = 0.0
 
     # Paper unipolar breakdown current is unresolved (off-state leakage floor)
     metrics = {

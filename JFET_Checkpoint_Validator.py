@@ -154,10 +154,11 @@ def run():
             output = subprocess.run([sys.executable, str(source), "--self-test"], cwd=root,
                                     capture_output=True, text=True, timeout=600)
             obj = json.loads(output.stdout) if output.returncode == 0 else {}
+            eq_flux = float(obj.get("equilibrium_flux_max_A_cm2", 1.0))
             ok = output.returncode == 0 and obj.get("equilibrium_flux_identity") == "PASS" \
-                 and obj.get("terminal_imbalance", 1) < 1e-5
+                 and eq_flux < 1e-6 and obj.get("terminal_imbalance", 1) < 1e-5
             checkpoint(results, "CP02 - self-test", "PASS" if ok else "FAIL",
-                       f"returncode={output.returncode}; " +
+                       f"returncode={output.returncode}; max_eq_flux={eq_flux:.3e} A/cm2; " +
                        (f"relative balance={obj.get('terminal_imbalance')}" if ok else (output.stderr[-500:] or output.stdout[-500:])))
         except (subprocess.TimeoutExpired, json.JSONDecodeError) as exc:
             checkpoint(results, "CP02 - self-test", "FAIL", repr(exc))

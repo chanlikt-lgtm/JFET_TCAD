@@ -127,12 +127,13 @@ def create_jfet_device(
     nd[-1, :] = ND_DRAIN_CM3
 
     # Gate P+ doping
+    gate_y1_um = gate_y0_um + gate_depth_um
     if mode == "bipolar_full":
         # Realistic Monte Carlo / Gaussian lateral straggle
         p_dist_left = np.maximum(0.0, xx - gate_wing_width)
         p_dist_right = np.maximum(0.0, (pillar_width_um - gate_wing_width) - xx)
         y_gate_center = 0.5 * (gate_y0_um + gate_y1_um)
-        sig_y = 0.5 * gate_depth_um
+        sig_y = 0.5 * max(gate_depth_um, 1e-6)
         sig_x = 0.15  # lateral encroachment straggle ~ 0.15 um
         p_prof_left = na_gate_cm3 * np.exp(-((yy - y_gate_center) / sig_y)**2) * (xx <= gate_wing_width + 0.3)
         p_prof_right = na_gate_cm3 * np.exp(-((yy - y_gate_center) / sig_y)**2) * (xx >= pillar_width_um - gate_wing_width - 0.3)
