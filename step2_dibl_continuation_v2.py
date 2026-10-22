@@ -574,6 +574,8 @@ def main() -> int:
     ap.add_argument("--biases", default=",".join(str(v) for v in DEFAULT_BIASES))
     ap.add_argument("--max-outer", type=int, default=1500)
     ap.add_argument("--tol", type=float, default=1.9e-6)
+    ap.add_argument("--inner-factor", type=float, default=0.75,
+                    help="factor to tighten inner Gummel tolerance relative to --tol (default 0.75)")
     ap.add_argument("--damping", type=float, default=0.65)
     ap.add_argument("--current-floor", type=float, default=1e-12,
                     help="conservative current resolution floor [A/um], not leakage")
@@ -676,7 +678,7 @@ def main() -> int:
             return 2
 
     def solve(bias: float, previous: Stage | None) -> Stage:
-        inner_tol = 0.75 * args.tol
+        inner_tol = args.inner_factor * args.tol
         psi, _, metrics, history = run_gummel_loop(
             grid=grid, v_gate=args.gate, v_drain=bias, v_source=0.0,
             max_outer_iter=args.max_outer, tol_residual_v=inner_tol,
