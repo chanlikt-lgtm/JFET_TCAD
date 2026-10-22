@@ -73,14 +73,19 @@ echo.
 :: 4. Checkpoint Validator
 :: ----------------------------------------------------------------------------
 echo ==============================================================================
-echo [4/6] Running JFET Checkpoint Validator (CP00 - CP05)...
+echo [4/6] Running JFET Checkpoint Validator (Scope: Scientific, Fail-Stop)...
 echo ==============================================================================
-python JFET_Checkpoint_Validator.py --coarse runs/CP04_coarse --fine runs/CP05_fine
+python JFET_Checkpoint_Validator.py --coarse runs/CP04_coarse --fine runs/CP05_fine --run-self-test --scope scientific --json runs\checkpoints.json
 if %errorlevel% neq 0 (
-    echo [ERROR] Checkpoint validator failed!
+    echo.
+    echo ==============================================================================
+    echo [FAIL-STOP] Checkpoint Validator halted pipeline with errorlevel %errorlevel%!
+    echo Unvalidated physical claims or unresolved physics blocked progression.
+    echo Inspection report saved at: runs\checkpoints.json
+    echo ==============================================================================
     goto :FAIL
 )
-echo [PASS] All checkpoints passed with 0 errors.
+echo [PASS] Checkpoints passed.
 echo.
 
 :: ----------------------------------------------------------------------------

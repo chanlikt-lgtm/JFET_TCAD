@@ -121,9 +121,12 @@ def run():
     parser.add_argument("--run-self-test", action="store_true",
                         help="Run the original solver's built-in self-test (may take time)")
     parser.add_argument("--json", type=Path, help="Write a separate JSON summary")
+    parser.add_argument("--scope", choices=["numerical", "scientific"], default="scientific",
+                        help="Validation scope: 'numerical' passes basic convergence; 'scientific' (default) fail-stops on unvalidated/blocked physics")
     parser.add_argument("--strict", action="store_true",
-                        help="Exit 2 when geometric or physical-reproduction gates remain blocked")
+                        help="Force fail-stop exit code 2 when geometric or physical-reproduction gates remain blocked")
     args = parser.parse_args()
+    strict_mode = args.strict or (args.scope == "scientific")
     root = args.root.resolve()
     results, cases = [], {}
     source = root / "simulate_kem948_fig5.py"
@@ -199,9 +202,17 @@ def run():
         print(f"Wrote JSON summary: {args.json}")
     failed = any(x["status"] == "FAIL" for x in results)
     blocked = any(x["status"] in ("BLOCKED", "NOT VALIDATED", "NOT AVAILABLE", "REVIEW") for x in results)
-    print("\nQualification: " + ("Numerical/integrity FAIL" if failed else "Numerical checks passed or skipped") +
+    
+    if failed:
+        print("\n[RESULT: FAIL-STOP] Critical numerical/integrity failure detected!")
+    elif strict_mode and blocked:
+        print("\n[RESULT: FAIL-STOP] Scientific validation gate BLOCKED (unresolved/unvalidated physics detected)!")
+    else:
+        print("\n[RESULT: PASS] All required checks passed under current scope.")
+        
+    print("Qualification: " + ("Numerical/integrity FAIL" if failed else "Numerical checks passed or skipped") +
           "; paper reproduction remains UNVALIDATED unless all physical gates are independently met")
-    return 2 if failed or (args.strict and blocked) else 0
+    return 2 if failed or (strict_mode and blocked) else 0
 
 
 if __name__ == "__main__":

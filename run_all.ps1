@@ -35,9 +35,17 @@ Write-Host "`n[3/6] Running Fine-Grid Simulation (mesh=0.1 um, CP05)..." -Foregr
 Write-Host "[PASS] Fine-grid simulation completed." -ForegroundColor Green
 
 # 4. Checkpoint Validator
-Write-Host "`n[4/6] Running JFET Checkpoint Validator (CP00 - CP05)..." -ForegroundColor Yellow
-& python JFET_Checkpoint_Validator.py --coarse runs/CP04_coarse --fine runs/CP05_fine
-Write-Host "[PASS] All checkpoints passed with 0 errors." -ForegroundColor Green
+Write-Host "`n[4/6] Running JFET Checkpoint Validator (Scope: Scientific, Fail-Stop)..." -ForegroundColor Yellow
+& python JFET_Checkpoint_Validator.py --coarse runs/CP04_coarse --fine runs/CP05_fine --run-self-test --scope scientific --json runs/checkpoints.json
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "`n==============================================================================" -ForegroundColor Red
+    Write-Host " [FAIL-STOP] Checkpoint Validator halted pipeline (Exit Code: $LASTEXITCODE)" -ForegroundColor Red
+    Write-Host " Unvalidated physical claims or unresolved physics blocked progression." -ForegroundColor Red
+    Write-Host " Inspection report saved at: runs/checkpoints.json" -ForegroundColor Red
+    Write-Host "==============================================================================`n" -ForegroundColor Red
+    exit $LASTEXITCODE
+}
+Write-Host "[PASS] Checkpoints passed." -ForegroundColor Green
 
 # 5. Master Reproduction Suite
 Write-Host "`n[5/6] Running Master Reproduction Suite for All Paper Figures..." -ForegroundColor Yellow
