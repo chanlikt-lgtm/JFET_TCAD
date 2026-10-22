@@ -1,0 +1,204 @@
+[
+  {
+    "VDS_V": 0.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 1.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 5.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 3.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 2.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 3.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 5.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 4.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 5.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 20.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 12.5,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 8.75,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 6.875,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 5.9375,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 6.875,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 8.75,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 7.8125,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 8.75,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 12.5,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 10.625,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 9.6875,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 10.625,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 12.5,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 11.5625,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 12.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 20.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 16.25,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 14.375,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 13.4375,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 14.375,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 16.25,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 15.3125,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 16.25,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 20.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  }
+]
