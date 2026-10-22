@@ -1,0 +1,375 @@
+[
+  {
+    "VDS_V": 16.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 17.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 17.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 18.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 18.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 19.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 19.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 20.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 20.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 21.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 21.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 22.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 22.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 23.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 23.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 24.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 24.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 25.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 25.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 26.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 26.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 27.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 27.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 28.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 28.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 29.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 29.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 30.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 35.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 32.5,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 31.25,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 30.625,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 31.25,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 32.5,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 31.875,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 32.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 35.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 33.75,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 33.125,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 33.75,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 35.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 34.375,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 35.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 40.0,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 37.5,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 36.25,
+    "accepted": false,
+    "problems": [
+      "StageFailure: Nonfinite density/quasi-Fermi potential after transport"
+    ]
+  },
+  {
+    "VDS_V": 35.625,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 36.25,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 37.5,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 40.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 45.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 50.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 55.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 60.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 65.0,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 70.0,
+    "accepted": false,
+    "problems": [
+      "independent_poisson_residual_V=2.2533832670761837e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 67.5,
+    "accepted": false,
+    "problems": [
+      "independent_poisson_residual_V=2.392709715722084e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 66.25,
+    "accepted": false,
+    "problems": [
+      "independent_correction_V=2.0043021870040975e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 65.625,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 66.25,
+    "accepted": false,
+    "problems": [
+      "independent_correction_V=2.0875417357490785e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 65.9375,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 66.25,
+    "accepted": true,
+    "problems": []
+  },
+  {
+    "VDS_V": 67.5,
+    "accepted": false,
+    "problems": [
+      "independent_poisson_residual_V=2.333270607713337e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 66.875,
+    "accepted": false,
+    "problems": [
+      "independent_correction_V=2.2263842288112483e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 66.5625,
+    "accepted": false,
+    "problems": [
+      "independent_poisson_residual_V=1.9442654942193156e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 66.40625,
+    "accepted": false,
+    "problems": [
+      "independent_poisson_residual_V=2.029330033193224e-06 exceeds 1.9e-06"
+    ]
+  },
+  {
+    "VDS_V": 66.328125,
+    "accepted": false,
+    "problems": [
+      "independent_poisson_residual_V=2.140859622295445e-06 exceeds 1.9e-06"
+    ]
+  }
+]
